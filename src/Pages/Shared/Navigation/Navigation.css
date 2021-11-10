@@ -1,6 +1,17 @@
-#app-bar{
-    background: blue;
+#app-bar button{
+    color: white;
+    font-size: 16px;
+    
 }
+#app-bar{
+    background-color: #B53471;
+}
+#nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 @media only screen and (min-width: 580px){
     #app-bar{
         

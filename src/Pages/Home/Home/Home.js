@@ -1,6 +1,5 @@
 import React from 'react';
-import ExploreNow from '../../Explore/ExploreNow/ExploreNow';
-import useFirebase from '../../hooks/useFirebase';
+
 import Navigation from '../../Shared/Navigation/Navigation';
 import AboutUs from '../AboutUs/AboutUs';
 import DiscountBanner from '../DiscountBanner/DiscountBanner';
@@ -22,6 +21,7 @@ const Home = () => {
             <DiscountBanner></DiscountBanner>
             <Testimonials></Testimonials>
             <Advertisement></Advertisement>
+
             <Footer></Footer>
         </div>
     );

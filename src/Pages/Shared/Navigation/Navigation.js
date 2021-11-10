@@ -3,11 +3,12 @@ import { Box } from '@mui/system';
 // import MenuIcon from "@material-ui/icons/Menu";
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+import useAuth from '../../hooks/useAuth';
+
 import "./Navigation.css";
 
 const Navigation = () => {
-    const { user } = useFirebase();
+    const { user, logoutUser } = useAuth();
     const changeBackground = () => {
         const appBar = document.getElementById("app-bar");
         if (appBar) {
@@ -23,7 +24,9 @@ const Navigation = () => {
 
     }
     window.addEventListener("scroll", changeBackground);
-
+    const loggintOutUser = () => {
+        logoutUser();
+    }
     return (
         <header >
             <Box sx={{ flexGrow: 1 }}>
@@ -33,32 +36,45 @@ const Navigation = () => {
                             <Box sx={{ display: "flex", alignItems: "center" }}>
 
 
-                                <Typography variant="h6" component="div">
-                                    home
-                                </Typography>
+                                <Link to="/home">
+                                    <Button>Home</Button>
+                                </Link>
                             </Box>
                             <Box id="nav-links">
-                                <Link to="/home">
-                                    <Button color="inherit">Home</Button>
-                                </Link>
 
 
-                                <Link to="/login">
-                                    <Button color="inherit">Login</Button>
-
-                                </Link>
-                                <Link to="/register">
-                                    <Button color="inherit">Register</Button>
-
-                                </Link>
-                                <Button color="inherit">Dashboard</Button>
                                 {
-                                    user.email && <h1 style={{ color: "white" }}>{user.displayName}</h1>
+                                    user.email ?
+                                        <Link to="/">
+                                            <Button onClick={loggintOutUser}>Logout</Button>
+
+                                        </Link>
+                                        :
+                                        <Link to="/login">
+                                            <Button>Login</Button>
+
+                                        </Link>
                                 }
-                                <Link to="/explore">
-                                    <Button color="inherit">Explore</Button>
+
+                                <Link to="/register">
+                                    <Button >Register</Button>
 
                                 </Link>
+
+
+                                <Link to="/explore">
+                                    <Button>Explore</Button>
+
+                                </Link>
+                                <Link to="/dashboard">
+                                    <Button>Dashboard</Button>
+
+                                </Link>
+                                <Typography sx={{ fontSize: "10px" }} variant={'h6'}>
+                                    {
+                                        user.email && <h1 style={{ color: "white" }}>{user.displayName}</h1>
+                                    }
+                                </Typography>
 
                             </Box>
                         </Toolbar>

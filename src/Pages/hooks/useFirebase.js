@@ -6,9 +6,12 @@ initializeFirebase();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(true);
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const registerNewUser = (name, email, password, history) => {
+        setLoading(true);
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const newUser = { displayName: name, email: email };
@@ -22,7 +25,7 @@ const useFirebase = () => {
                     // An error occurred
                     // ...
                 });
-                setError("");
+
                 fetch("http://localhost:5000/users", {
                     method: "POST",
                     headers: {
@@ -31,6 +34,7 @@ const useFirebase = () => {
                     body: JSON.stringify(newUser)
                 })
                     .then()
+                setLoading(false)
                 history.replace("/");
             })
             .catch((error) => {
@@ -38,10 +42,12 @@ const useFirebase = () => {
                 const errorMessage = error.message;
                 // ..
                 setError(error.message);
-            });
+            })
+            .finally(() => setLoading(false))
+            ;
     }
     const loginUser = (email, password, history, location) => {
-
+        setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
@@ -56,9 +62,12 @@ const useFirebase = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setError(error.message);
-            });
+            })
+            .finally(() => setLoading(false))
+            ;
     }
     const googleLogIn = (history, location) => {
+        setLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 setError("");
@@ -73,20 +82,26 @@ const useFirebase = () => {
                 })
                     .then()
 
-                const redirect_url = location?.state?.from || "/";
-                history.push(redirect_url);
+                const redirect_url = location?.state?.from || "/home";
+                history.replace(redirect_url);
             }).catch((error) => {
                 setError(error.message);
-            });
+            })
+            .finally(() => setLoading(false))
+            ;
     }
     const logoutUser = () => {
+        setLoading(true);
         signOut(auth).then(() => {
             // Sign-out successful.
         }).catch((error) => {
             // An error happened.
-        });
+        })
+            .finally(() => setLoading(false))
+            ;
     }
     useEffect(() => {
+        setLoading(true);
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is signed in, see docs for a list of available properties
@@ -99,6 +114,7 @@ const useFirebase = () => {
                 // ...
                 setUser({})
             }
+            setLoading(false);
         });
     }, [auth])
     return {
@@ -106,7 +122,8 @@ const useFirebase = () => {
         registerNewUser,
         googleLogIn,
         logoutUser,
-        loginUser
+        loginUser,
+        loading
     }
 }
 export default useFirebase;

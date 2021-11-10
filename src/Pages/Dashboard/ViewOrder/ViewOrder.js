@@ -1,31 +1,13 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
-import "./OurSedan.css";
+import useAuth from '../../hooks/useAuth';
 
-const OurSedan = ({ sedan }) => {
-    const { user } = useFirebase();
-    const history = useHistory();
+const ViewOrder = ({ order }) => {
+    const { user } = useAuth();
 
-    const { img, name, engine, fuelType, gear, gearType, price, _id } = sedan
-    const handlePurchasing = () => {
-        const email = user.email;
-        const body = { ...sedan, email };
-        fetch(`http://localhost:5000/purchasedSedan`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(body)
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
-    }
-    const gotoPurchase = id => {
-        history.push(`/purchase/${id}`);
-    }
+    const { img, name, engine, fuelType, gear, gearType, price } = order;
+
     return (
         <Grid item lg={4} md={4} sm={12} xs={12}>
             <Card sx={{ maxWidth: 345, padding: "15px" }}>
@@ -61,10 +43,7 @@ const OurSedan = ({ sedan }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-
-                    <Button size="small" onClick={() => gotoPurchase(_id)}>Purchase Now</Button>
-
-
+                    <Button size="small">Delete</Button>
 
                 </CardActions>
             </Card>
@@ -72,4 +51,4 @@ const OurSedan = ({ sedan }) => {
     );
 };
 
-export default OurSedan;
+export default ViewOrder;

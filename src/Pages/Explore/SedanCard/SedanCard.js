@@ -1,10 +1,16 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
+import { useHistory } from 'react-router';
 
 const SedanCard = ({ sedan }) => {
-    const { img, name, engine, fuelType, gear, gearType, price } = sedan
+    const { _id, img, name, engine, fuelType, gear, gearType, price } = sedan;
+    const history = useHistory();
+    const handlePurchasing = () => {
 
+        history.push(`/purchase/${_id}`);
+
+    }
     return (
         <Grid item lg={4} md={4} sm={12} xs={12}>
             <Card sx={{ maxWidth: 345, padding: "15px" }}>
@@ -40,8 +46,7 @@ const SedanCard = ({ sedan }) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Share</Button>
-                    <Button size="small">Learn More</Button>
+                    <Button onClick={handlePurchasing}>Purchase</Button>
                 </CardActions>
             </Card>
         </Grid>
