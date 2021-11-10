@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Roboto+Slab:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css?  family=Lora:400,400i,700,700i");
+
+#home-banner{
+    position: relative;
+    height: 700px;
+}
+#banner-img{
+    background-image: url("https://www.imgonline.com.ua/result_img/imgonline-com-ua-resize-k7TxeU5I3fbO.jpg");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    
+    background-blend-mode:lighten;
+    
+}
+#banner-content{
+    position: absolute;
+    top:100px;
+    left: 100px;
+    text-align: left;
+    animation: myfirst 5s linear 2s infinite alternate;
+    
+}
+
+#banner-content h1{
+    font-size: 54px;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 3px;
+}
+@media only screen and (max-width: 420px){
+    #home-banner{
+        
+        height: 400px;
+ 
+    }
+    #banner-content h1{
+        font-size: 24px;
+    }
+	.patterns{
+        width:"100vw";
+        margin: "0 auto";
+    }
+    .animated-txt{
+        font-size: 50px;
+    }
+    
+}
+
+.txt-seablue{
+    /* color: #1B1464; */
+    color: #034091;
+}
+.txt-smartRed{
+    color:#ED4C67;
+}
+.txt-glowBlack{
+    color: #222f3e;
+}
+#animated-banner {
+    background-color: #222f3e;
+    margin:0;
+ }
+ 
+ .patterns {
+   height: 250px;
+
+ }
+ 
+ 
+ 
+ svg text {
+   font-family: Lora;
+   letter-spacing: 10px;
+   stroke: #c8d6e5;
+   font-size: 150px;
+   font-weight: 700;
+   stroke-width: 3;
+  
+   animation: textAnimate 5s infinite alternate;
+   
+ }
+ 
+ @keyframes textAnimate {
+   0% {
+     stroke-dasharray: 0 50%;
+     stroke-dashoffset:  20%;
+     fill:#10ac84
+ 
+   }
+   
+   100% {
+     stroke-dasharray: 50% 0;
+     stroke-dashoffstet: -20%;
+     fill: #ff6b6b
+   }
+   
+ }
