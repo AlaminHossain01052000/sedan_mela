@@ -2,8 +2,8 @@ import { Avatar, Button, Card, CardActions, CardContent, List, ListItem, ListIte
 import React from 'react';
 
 const Testimonial = ({ testimonial }) => {
-    const { email, name, phone, rating, description } = testimonial;
-    const { post } = testimonial.company;
+    const { email, name, rating, description } = testimonial;
+
     return (
         <div style={{ marginBottom: "100px" }}>
             <Card sx={{ width: 320, height: 400, backgroundColor: "red", marginRight: "10px", borderRadius: "10px", position: "relative" }}>
