@@ -2,11 +2,12 @@ import { AppBar, Button, Container, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 // import MenuIcon from "@material-ui/icons/Menu";
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./Navigation.css";
 
 const Navigation = () => {
     const changeBackground = () => {
-        console.log(window.scrollY);
+
         if (window.scrollY >= 80) {
             document.getElementById("app-bar").style.backgroundColor = "rgba(0,0,0,0.5)";
         }
@@ -31,12 +32,18 @@ const Navigation = () => {
                                 </Typography>
                             </Box>
                             <Box id="nav-links">
-                                <Button color="inherit">Home</Button>
+                                <Link to="/home">
+                                    <Button color="inherit">Home</Button>
+                                </Link>
+
                                 <Button color="inherit">Login</Button>
                                 <Button color="inherit">Register</Button>
                                 <Button color="inherit">Dashboard</Button>
                                 <Button color="inherit">Alamin</Button>
-                                <Button color="inherit">Explore</Button>
+                                <Link to="/explore">
+                                    <Button color="inherit">Explore</Button>
+
+                                </Link>
 
                             </Box>
                         </Toolbar>

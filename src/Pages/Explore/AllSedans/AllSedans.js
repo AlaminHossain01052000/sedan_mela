@@ -1,9 +1,8 @@
-import { Container, Grid, Typography } from '@mui/material';
-import { Box } from '@mui/system';
+import { Container, Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import OurSedan from '../OurSedan/OurSedan';
-import "./OurSedans.css";
-const OurSedans = () => {
+import SedanCard from '../SedanCard/SedanCard';
+
+const AllSedans = () => {
     const [sedans, setSedans] = useState([]);
     useEffect(() => {
         fetch("http://localhost:5000/sedans")
@@ -11,24 +10,19 @@ const OurSedans = () => {
             .then(data => setSedans(data))
     }, [])
     return (
-        <Box>
-            <Box>
-                <Typography variant={'h3'}>
-                    Our Sedans
-                </Typography>
-            </Box>
+        <div style={{ marginTop: "100px" }}>
             <Container>
                 <Grid container spacing={2}>
                     {
-                        sedans.slice(0, 6).map(sedan => <OurSedan
+                        sedans.map(sedan => <SedanCard
                             key={sedan._id}
                             sedan={sedan}
-                        ></OurSedan>)
+                        ></SedanCard>)
                     }
                 </Grid>
             </Container>
-        </Box>
+        </div>
     );
 };
 
-export default OurSedans;
+export default AllSedans;

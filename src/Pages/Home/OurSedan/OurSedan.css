@@ -1,0 +1,12 @@
+#sedan-img-container{
+    position: relative;
+}
+#sedan-price{
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    background: #ff6b6b;
+    padding: 5px 14px;
+    border-radius: 3px;
+    color:wheat;
+}

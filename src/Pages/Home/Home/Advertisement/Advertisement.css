@@ -1,0 +1,44 @@
+#animated-banner {
+    background-color: #222f3e;
+   margin: 100px;
+    
+ }
+ 
+ .patterns {
+   height: 250px;
+
+ }
+ svg text {
+    font-family: Lora;
+    letter-spacing: 10px;
+    stroke: #c8d6e5;
+    font-size: 150px;
+    font-weight: 700;
+    stroke-width: 3;
+   
+    animation: textAnimate 5s infinite alternate;
+    
+  }
+  
+  @keyframes textAnimate {
+    0% {
+      stroke-dasharray: 0 50%;
+      stroke-dashoffset:  20%;
+      fill:#10ac84
+  
+    }
+    
+    100% {
+      stroke-dasharray: 50% 0;
+      stroke-dashoffstet: -20%;
+      fill: #ff6b6b
+    }
+    
+  }
+  /* .patterns{
+    width:"100vw";
+    margin: "0 auto";
+}
+.animated-txt{
+    font-size: 50px;
+} */
