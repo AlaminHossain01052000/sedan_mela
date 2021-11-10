@@ -4,6 +4,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import ExploreNow from './Pages/Explore/ExploreNow/ExploreNow';
 import Home from './Pages/Home/Home/Home';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
 
 function App() {
 
@@ -19,6 +21,12 @@ function App() {
           </Route>
           <Route path="/explore">
             <ExploreNow></ExploreNow>
+          </Route>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
+          <Route path="/register">
+            <Register></Register>
           </Route>
         </Switch>
       </BrowserRouter>

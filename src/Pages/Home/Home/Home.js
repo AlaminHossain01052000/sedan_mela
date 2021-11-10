@@ -1,5 +1,6 @@
 import React from 'react';
 import ExploreNow from '../../Explore/ExploreNow/ExploreNow';
+import useFirebase from '../../hooks/useFirebase';
 import Navigation from '../../Shared/Navigation/Navigation';
 import AboutUs from '../AboutUs/AboutUs';
 import DiscountBanner from '../DiscountBanner/DiscountBanner';
@@ -10,6 +11,7 @@ import Testimonials from '../Testimonials/Testimonials';
 import Advertisement from './Advertisement/Advertisement';
 
 const Home = () => {
+
     return (
         <div>
             <Navigation></Navigation>
