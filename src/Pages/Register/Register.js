@@ -2,7 +2,7 @@ import { TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import useFirebase from '../hooks/useFirebase';
-
+import "./Register.css";
 const Register = () => {
     const [userInfo, setUserInfo] = useState({});
     const [rePassword, setRePassword] = useState("");
@@ -27,16 +27,20 @@ const Register = () => {
             alert("Registered Successfully");
         }
     }
+    const handleGoToLogin = () => {
+        history.push("/login")
+    }
     return (
-        <div>
+        <div className="register-page">
             <h1>Register Here</h1>
-            <form onSubmit={handleUserRegistration}>
+            <form onSubmit={handleUserRegistration} className="register-form">
                 <TextField
                     required
                     placeholder="Your Name"
                     type="text"
                     name="displayName"
                     onChange={handleOnChange}
+                    className="input-field"
                 />
                 <TextField
                     required
@@ -44,6 +48,7 @@ const Register = () => {
                     type="email"
                     onChange={handleOnChange}
                     name="email"
+                    className="input-field"
 
                 />
                 <TextField
@@ -52,7 +57,7 @@ const Register = () => {
                     type="password"
                     name="password"
                     onChange={handleOnChange}
-
+                    className="input-field"
                 />
                 <TextField
                     required
@@ -60,10 +65,13 @@ const Register = () => {
                     type="password"
                     name="rePassword"
                     onChange={handleMatchingPassword}
+                    className="input-field"
                 />
-                <input type="submit" />
+                <input type="submit" className="btn-submit" />
             </form>
-            <h2>Already Registered ? Click Here to Sign in</h2>
+            <h2>Already Registered ? Click
+                <span onClick={handleGoToLogin} style={{ color: "#341f97", cursor: "pointer" }}> Here </span>
+                to Sign in</h2>
         </div>
     );
 };
