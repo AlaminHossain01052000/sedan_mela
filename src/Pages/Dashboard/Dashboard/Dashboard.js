@@ -148,7 +148,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        Responsive drawer
+                        <Link to="/home">Back to home</Link>
                     </Typography>
                 </Toolbar>
             </AppBar>
