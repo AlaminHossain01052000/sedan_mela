@@ -6,12 +6,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -22,6 +19,12 @@ import MakePayment from '../MakePayment/MakePayment';
 import AddReview from '../AddReview/AddReview';
 import MyOrders from '../MyOrders/MyOrders';
 import useAuth from '../../hooks/useAuth';
+import AdminRoute from '../../AdminRoute/AdminRoute';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import AddAProduct from '../AddAProduct/AddAProduct';
+import ManageProducts from '../ManageProducts/ManageProducts';
+import PrivateRoute from '../../PrivateRoute/PrivateRoute';
 
 const drawerWidth = 240;
 
@@ -29,6 +32,8 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
+    const { admin } = useAuth();
+    console.log(admin)
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -37,35 +42,78 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-            <List>
+            {admin ? <Box> <List>
 
                 <ListItem button>
-                    <Link to={`${url}`}>My Orders</Link>
+                    <Link to={`${url}`}>Make an admin</Link>
 
                     <ListItemText />
                 </ListItem>
 
             </List>
+
+                <List>
+
+                    <ListItem button>
+                        <Link to={`${url}/manageOrders`}>Manage All Orders</Link>
+
+                        <ListItemText />
+                    </ListItem>
+
+                </List>
+                <List>
+
+                    <ListItem button>
+                        <Link to={`${url}/addProduct`}>Add a Product</Link>
+
+                        <ListItemText />
+                    </ListItem>
+
+                </List>
+                <List>
+
+                    <ListItem button>
+                        <Link to={`${url}/manageProducts`}>Manage All Products
+                        </Link>
+
+                        <ListItemText />
+                    </ListItem>
+
+                </List></Box> : <Box>
+                <List>
+
+                    <ListItem button>
+                        <Link to={`${url}`}>My Orders</Link>
+
+                        <ListItemText />
+                    </ListItem>
+
+                </List>
+                <List>
+
+                    <ListItem button>
+                        <Link to={`${url}/payment`}>Make Payment</Link>
+
+                        <ListItemText />
+                    </ListItem>
+
+                </List>
+                <List>
+
+                    <ListItem button>
+                        <Link to={`${url}/review`}>Add a review</Link>
+
+                        <ListItemText />
+                    </ListItem>
+
+                </List>
+
+
+
+            </Box>}
+
+
             <List>
-
-                <ListItem button>
-                    <Link to={`${url}/payment`}>Make Payment</Link>
-
-                    <ListItemText />
-                </ListItem>
-
-            </List>
-            <List>
-
-                <ListItem button>
-                    <Link to={`${url}/review`}>Add a review</Link>
-
-                    <ListItemText />
-                </ListItem>
-
-            </List>
-            <List>
-
                 <ListItem button>
                     <Link to="/home" onClick={logoutUser}>Logout</Link>
 
@@ -74,7 +122,7 @@ function Dashboard(props) {
 
             </List>
 
-        </div>
+        </div >
     );
 
     const container = window !== undefined ? () => window().document.body : undefined;
@@ -142,15 +190,30 @@ function Dashboard(props) {
             >
                 <Toolbar />
                 <Switch>
-                    <Route exact path={path}>
+                    {admin ? <PrivateRoute exact path={path}>
+                        <MakeAdmin></MakeAdmin>
+                    </PrivateRoute> : <PrivateRoute exact path={path}>
                         <MyOrders></MyOrders>
-                    </Route>
-                    <Route exact path={`${path}/payment`}>
+                    </PrivateRoute>}
+
+                    <PrivateRoute exact path={`${path}/payment`}>
                         <MakePayment></MakePayment>
-                    </Route>
-                    <Route exact path={`${path}/review`}>
+                    </PrivateRoute>
+                    <PrivateRoute exact path={`${path}/review`}>
                         <AddReview></AddReview>
-                    </Route>
+                    </PrivateRoute>
+                    <AdminRoute exact path={`${path}/manageOrders`}>
+                        <ManageAllOrders></ManageAllOrders>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/makeAdmin`}>
+                        <MakeAdmin></MakeAdmin>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/addProduct`}>
+                        <AddAProduct></AddAProduct>
+                    </AdminRoute>
+                    <AdminRoute exact path={`${path}/manageProducts`}>
+                        <ManageProducts></ManageProducts>
+                    </AdminRoute>
 
                 </Switch>
             </Box>

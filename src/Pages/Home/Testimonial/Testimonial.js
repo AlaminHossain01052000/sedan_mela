@@ -3,7 +3,7 @@ import React from 'react';
 
 const Testimonial = ({ testimonial }) => {
     const { email, name, rating, description } = testimonial;
-
+    const rated = parseInt(rating);
     return (
         <div style={{ marginBottom: "100px" }}>
             <Card sx={{ width: 320, height: 400, backgroundColor: "red", marginRight: "10px", borderRadius: "10px", position: "relative" }}>
@@ -60,7 +60,7 @@ const Testimonial = ({ testimonial }) => {
 
                 </CardContent>
                 <CardActions>
-                    <Rating name="read-only" value={rating} readOnly sx={{ position: "absolute", bottom: "10px", left: "10px" }} />
+                    <Rating name="read-only" value={rated} readOnly sx={{ position: "absolute", bottom: "10px", left: "10px" }} />
                 </CardActions>
             </Card>
         </div>

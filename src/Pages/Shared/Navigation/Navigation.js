@@ -70,7 +70,7 @@ const Navigation = () => {
                                     <Button>Dashboard</Button>
 
                                 </Link>
-                                <Typography sx={{ fontSize: "10px" }} variant={'h6'}>
+                                <Typography sx={{ fontSize: "10px" }}>
                                     {
                                         user.email && <h1 style={{ color: "white" }}>{user.displayName}</h1>
                                     }
