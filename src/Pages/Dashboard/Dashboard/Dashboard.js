@@ -148,7 +148,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        <Link to="/home">Back to home</Link>
+                        <Link to="/home" style={{ color: "white" }}>Back to home <i class="fas fa-arrow-right"></i></Link>
                     </Typography>
                 </Toolbar>
             </AppBar>

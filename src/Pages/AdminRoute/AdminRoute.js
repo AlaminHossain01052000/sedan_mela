@@ -11,26 +11,28 @@ import useAuth from '../hooks/useAuth';
 const AdminRoute = ({ children, ...rest }) => {
     const { loading, user, admin } = useAuth();
 
-
-    return (
-        loading ? <Box sx={{ width: '100%' }}>
+    if (loading) {
+        return <Box sx={{ width: '100%' }}>
             <LinearProgress />
-        </Box> :
-            <Route
-                {...rest}
-                render={({ location }) =>
-                    admin && user.email ? (
-                        children
-                    ) : (
-                        <Redirect
-                            to={{
-                                pathname: "/",
-                                state: { from: location }
-                            }}
-                        />
-                    )
-                }
-            />
+        </Box>
+    }
+    return (
+
+        <Route
+            {...rest}
+            render={({ location }) =>
+                admin && user.email ? (
+                    children
+                ) : (
+                    <Redirect
+                        to={{
+                            pathname: "/",
+                            state: { from: location }
+                        }}
+                    />
+                )
+            }
+        />
     );
 };
 

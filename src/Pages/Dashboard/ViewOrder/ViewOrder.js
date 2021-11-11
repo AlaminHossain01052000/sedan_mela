@@ -2,7 +2,7 @@ import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } f
 import { Box } from '@mui/system';
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
-
+import "./ViewOrder.css";
 const ViewOrder = ({ order }) => {
     const { user } = useAuth();
 
@@ -18,7 +18,7 @@ const ViewOrder = ({ order }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+
                     if (data.deletedCount === 1) {
                         alert("Order Deleted Successfully");
                         window.location.reload()
@@ -43,29 +43,29 @@ const ViewOrder = ({ order }) => {
                         </Typography>
                     </Box>
                 </Box>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                <CardContent sx={{ textAlign: "left" }}>
+                    <Typography sx={{ textAlign: "center", fontWeight: 600, color: "#130f40" }} gutterBottom variant="h5" component="div">
                         {name}
                     </Typography>
-                    <Typography color="text.secondary">
+                    <Typography className="sedan-description">
                         Engine:{engine}
                     </Typography>
-                    <Typography color="text.secondary">
+                    <Typography className="sedan-description">
                         Tranmission(Gear):{gear}/{gearType}
                     </Typography>
-                    <Typography color="text.secondary">
+                    <Typography className="sedan-description">
                         Fuel Type:{fuelType}
                     </Typography>
 
-                    <Typography color="text.secondary">
+                    <Typography className="sedan-description">
                         Fuel Type:{fuelType}
                     </Typography>
-                    <Typography color="text.secondary">
+                    <Typography className="sedan-description">
                         Status:{order.status}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small" onClick={handleDeletingOrder}>Delete</Button>
+                    <button className="btn-delete" onClick={handleDeletingOrder}>Delete</button>
 
                 </CardActions>
             </Card>

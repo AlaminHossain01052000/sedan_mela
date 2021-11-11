@@ -13,25 +13,39 @@ const MakeAdmin = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                if (data.matchedCount) {
+                    alert(`${email} is now an admin`);
+                    window.location.reload();
+                }
             })
     }
     return (
         <div>
-            <h1 class="text-center mb-3">Make Admin</h1>
+            <h1 className="text-center mb-3" style={{ color: "#30336b" }}>Make Admin</h1>
             <form onSubmit={handleMakingAdmin}>
 
                 <div class="row mb-1">
                     <div class="col">
-                        <label class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email"
-                            aria-label="Email" required onChange={handleOnChange} />
+                        <label class="form-label" style={{ fontSize: "20px", fontWeight: 500 }}>Email : </label>
+                        <input
+                            style={{ padding: "15px", border: 0, backgroundColor: "#eee", color: "blue", fontSize: "16px" }}
+                            type="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Email"
+                            aria-label="Email" required
+                            onChange={handleOnChange} />
                     </div>
 
 
 
 
-                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                    <button
+                        style={{ marginTop: "20px", padding: "10px 25px", border: "0px", backgroundColor: "#ff7979", color: "white", fontWeight: "500", borderRadius: "10px", cursor: "pointer" }}
+                        type="submit"
+                        class="btn btn-primary mt-2">
+                        Submit
+                    </button>
                 </div>
             </form>
         </div>

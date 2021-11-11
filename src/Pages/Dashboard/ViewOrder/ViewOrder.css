@@ -1,0 +1,24 @@
+
+         .btn-delete {background-image: linear-gradient(to right, #000000 0%, #e74c3c  51%, #000000  100%)}
+         .btn-delete {
+            margin: 10px auto;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            border: 0px;
+            border-radius: 10px;
+            display: block;
+            font-weight: 600;
+            
+          }
+
+          .btn-delete:hover {
+            background-position: right center; /* change the direction of the change here */
+            cursor: pointer;
+            color: #fff;
+            text-decoration: none;
+          }
+         

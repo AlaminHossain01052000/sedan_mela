@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
-
+import "./AddReview.css"
 const AddReview = () => {
     const { user } = useAuth();
     const [companyName, setCompanyName] = useState("");
@@ -31,14 +31,21 @@ const AddReview = () => {
             },
             body: JSON.stringify(testimonial)
         })
-            .then()
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.insertedId) {
+                    alert("Review Added Successfully !")
+                    window.location.reload();
+                }
+            })
     }
     return (
-        <div>
-            <form onSubmit={handleAddingReview}>
+        <div className="add-review-container">
+            <form onSubmit={handleAddingReview} className="add-review-form">
                 <input type="text" defaultValue={user.displayName} />
                 <input type="text" defaultValue={user.email} />
-                <textarea type="text" placeholder="description" onChange={getDescription} name="description" />
+                <textarea type="text" placeholder="Description" onChange={getDescription} name="description" rows="6" />
                 <input type="text" onChange={getCompanyName} placeholder="Your Company's Name"></input>
                 <input type="text" onChange={getCompanyPost} name="post" placeholder="Your Post in that company"></input>
                 <select name="review" id="review" onChange={handleGetReview}>
@@ -48,7 +55,7 @@ const AddReview = () => {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <input type="submit" value="submit" />
+                <input className="submit-input" type="submit" value="submit" style={{ cursor: "pointer" }} />
             </form>
         </div >
     );

@@ -1,0 +1,30 @@
+.add-review-container{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+  
+}
+.add-review-form{
+    margin: 0 auto;
+    width: 50%;
+}
+.add-review-form input ,textarea,select{
+display: block;
+margin-bottom:20px;
+padding: 15px;
+background-color: #eee;
+border-radius: 5px;
+border:0px;
+color:blue;
+box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.submit-input:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: brown;
+}
+@media only screen and (max-width:420px) {
+    .add-review-container{
+        margin: 10px;
+    }
+}
