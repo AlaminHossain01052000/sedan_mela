@@ -6,26 +6,40 @@
 #app-bar{
     background-color: #B53471;
 }
-#nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+
+#nav-links a:hover{
+background-color: #30336b;
+border-radius: 5px;
+}
+.explore-button:hover{
+    background-color: none;
+}
+#toggle-button{
+    display: none;
 }
 
-@media only screen and (min-width: 580px){
-    #app-bar{
+@media screen and (min-width:430px) {
+    #nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
         
-        position: fixed;
-        top: 0;
-        width: 100%;
- 
     }
-	
 }
-
 @media only screen and (max-width: 425px){
-    #navbar-tools{
+    #nav-toolbar{
         flex-direction: column;
     }
-	
+	#toggle-button{
+        display: block;
+    }
+    #nav-links{
+        display: none;
+
+    }
+    #nav-links a{
+        display: block;
+    }
+
 }
+

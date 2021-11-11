@@ -1,12 +1,13 @@
-import { Avatar, Button, Card, CardActions, CardContent, List, ListItem, ListItemAvatar, ListItemText, Rating, Typography } from '@mui/material';
+import { Avatar, Card, CardActions, CardContent, List, ListItem, ListItemAvatar, ListItemText, Rating, Typography } from '@mui/material';
 import React from 'react';
+import "./Testimonial.css";
 
 const Testimonial = ({ testimonial }) => {
     const { email, name, rating, description } = testimonial;
     const rated = parseInt(rating);
     return (
-        <div style={{ marginBottom: "100px" }}>
-            <Card sx={{ width: 320, height: 400, backgroundColor: "red", marginRight: "10px", borderRadius: "10px", position: "relative" }}>
+        <div style={{ margin: "50px 0 100px 0" }}>
+            <Card sx={{ width: 320, height: 400, backgroundColor: "#10ac84", marginRight: "10px", borderRadius: "10px", position: "relative" }} className="testimonial_card">
                 <List>
                     <ListItem alignItems="flex-start">
                         <ListItemAvatar>
@@ -60,7 +61,7 @@ const Testimonial = ({ testimonial }) => {
 
                 </CardContent>
                 <CardActions>
-                    <Rating name="read-only" value={rated} readOnly sx={{ position: "absolute", bottom: "10px", left: "10px" }} />
+                    <Rating name="read-only" value={rated} readOnly sx={{ position: "absolute", bottom: "10px", left: "10px", color: "#30336b" }} />
                 </CardActions>
             </Card>
         </div>

@@ -2,7 +2,7 @@ import { TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
 import useFirebase from '../hooks/useFirebase';
-
+import "./Login.css";
 const Login = () => {
     const [user, setUser] = useState({});
     const { loginUser, googleLogIn } = useFirebase();
@@ -23,10 +23,13 @@ const Login = () => {
     const handleGoogleLogIn = () => {
         googleLogIn(history, location);
     }
+    const handleGoToRegister = () => {
+        history.push("/register")
+    }
     return (
-        <div>
-            <h1>Register Here</h1>
-            <form onSubmit={handleUserLogIn}>
+        <div className="sign-in-page">
+            <h1 style={{ color: "#ff6b6b" }}>Login Here</h1>
+            <form onSubmit={handleUserLogIn} className="login-form">
 
                 <TextField
                     required
@@ -34,7 +37,7 @@ const Login = () => {
                     type="email"
                     onChange={handleOnChange}
                     name="email"
-
+                    className="input-field"
                 />
                 <TextField
                     required
@@ -42,13 +45,16 @@ const Login = () => {
                     type="password"
                     name="password"
                     onChange={handleOnChange}
+                    className="input-field"
 
                 />
 
-                <input type="submit" />
+                <input type="submit" className="btn-submit" />
             </form>
-            <button onClick={handleGoogleLogIn}>Google</button>
-            <h2>Already Registered ? Click Here to Sign in</h2>
+
+            <img onClick={handleGoogleLogIn} width="50px" src="https://i.ibb.co/RSDyLbz/download.png" alt="googleLogo" style={{ cursor: "pointer" }} />
+
+            <h2 style={{ color: "#222f3e" }}>Already Registered ? Click <span onClick={handleGoToRegister} style={{ color: "#341f97", cursor: "pointer" }}>Here</span> to Sign in</h2>
         </div>
     );
 };

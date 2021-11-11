@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 #sedan-img-container{
     position: relative;
 }
@@ -10,3 +11,40 @@
     border-radius: 3px;
     color:wheat;
 }
+.our-sedan-card:hover{
+    box-shadow: #f6e58d 0px 5px 15px;
+    transition: .5s;
+}
+.sedan-description{
+    color:#30336b;
+    font-weight: 500;
+}
+
+ 
+
+  
+  .btn-purchase {background-image: linear-gradient(to right, #4b6cb7 0%, #182848  51%, #4b6cb7  100%)}
+  .btn-purchase {
+     margin: 10px auto;
+     padding: 15px 30px;
+     text-align: center;
+     text-transform: uppercase;
+     transition: 0.5s;
+     background-size: 200% auto;
+     color: white;   
+     font-family: 'Roboto', sans-serif;         
+     box-shadow: 0 0 20px #eee;
+     border-radius: 10px;
+     display: block;
+     border: 0px;
+     font-weight: 500;
+   }
+
+   .btn-purchase:hover {
+     background-position: right center; /* change the direction of the change here */
+     color: #fff;
+     text-decoration: none;
+     cursor: pointer;
+   }
+  
+ 

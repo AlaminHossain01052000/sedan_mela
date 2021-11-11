@@ -1,6 +1,6 @@
 #animated-banner {
     background-color: #222f3e;
-   margin: 100px;
+   margin: 100px 0 0 0;
     
  }
  
@@ -35,10 +35,16 @@
     }
     
   }
-  /* .patterns{
-    width:"100vw";
-    margin: "0 auto";
-}
-.animated-txt{
-    font-size: 50px;
-} */
+  @media only screen and (max-width: 420px) {
+    #animated-banner {
+      width: 250px;
+      margin: 0 auto;
+    }
+    #height{
+      width: 200px;
+      
+    }
+    svg text{
+      font-size: 50px;
+    }
+  }

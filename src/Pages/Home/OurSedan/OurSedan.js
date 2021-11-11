@@ -28,7 +28,7 @@ const OurSedan = ({ sedan }) => {
     }
     return (
         <Grid item lg={4} md={4} sm={12} xs={12}>
-            <Card sx={{ maxWidth: 345, padding: "15px" }}>
+            <Card className="our-sedan-card" sx={{ maxWidth: 345, padding: "15px", backgroundColor: "#c7ecee", border: "1px solid #f6e58d" }}>
                 <Box id="sedan-img-container">
                     <CardMedia
                         component="img"
@@ -42,27 +42,27 @@ const OurSedan = ({ sedan }) => {
                         </Typography>
                     </Box>
                 </Box>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                <CardContent sx={{ textAlign: "left" }}>
+                    <Typography sx={{ textAlign: "center", fontWeight: 600, color: "#130f40" }} gutterBottom variant="h5" component="div">
                         {name}
                     </Typography>
-                    <Typography color="text.secondary">
-                        Engine:{engine}
+                    <Typography className="sedan-description" variant={'h6'}>
+                        Engine : {engine}
                     </Typography>
-                    <Typography color="text.secondary">
-                        Tranmission(Gear):{gear}/{gearType}
+                    <Typography className="sedan-description" variant={'h6'}>
+                        Tranmission(Gear) : {gear}/{gearType}
                     </Typography>
-                    <Typography color="text.secondary">
-                        Fuel Type:{fuelType}
+                    <Typography className="sedan-description" variant={'h6'}>
+                        Fuel Type : {fuelType}
                     </Typography>
 
-                    <Typography color="text.secondary">
-                        Fuel Type:{fuelType}
+                    <Typography className="sedan-description" variant={'h6'}>
+                        Fuel Type : {fuelType}
                     </Typography>
                 </CardContent>
                 <CardActions>
 
-                    <Button size="small" onClick={() => gotoPurchase(_id)}>Purchase Now</Button>
+                    <button size="small" onClick={() => gotoPurchase(_id)} className="btn-purchase" sx={{ margin: "0 auto" }}>Purchase Now</button>
 
 
 

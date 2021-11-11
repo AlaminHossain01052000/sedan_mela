@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Slider from "react-slick";
 import Testimonial from '../Testimonial/Testimonial';
@@ -46,8 +47,11 @@ const Testimonials = () => {
             .then(data => setTestimonials(data))
     }, [])
     return (
-        <div style={{ width: "80%", margin: "0 auto" }}>
-            <h2> Testimonial </h2>
+        <div style={{ width: "80%", margin: "60px auto" }}>
+            <Typography sx={{ fontSize: "40px", fontWeight: 500, marginBottom: "40px" }} variant={'h3'}>
+                Testi<span style={{ color: "#30336b" }}>monial</span>
+                <hr style={{ width: "20%", border: "1px solid #30336b" }} />
+            </Typography>
             <Slider {...settings}>
                 {
                     testimonials.map(testimonial => <Testimonial

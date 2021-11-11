@@ -1,0 +1,21 @@
+.footer-icon{
+    color:#ffbe76;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 10px;
+}
+.footer-icon:hover{
+    cursor: pointer;
+    color: #f0932b;
+
+    border-color: black;
+    background-color: blanchedalmond;
+}
+@media only screen and (max-width:420px){
+    #footer-container{
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+}

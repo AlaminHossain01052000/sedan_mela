@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+.sign-in-page{
+    background-color: #eee;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+   width:300px;
+   margin: 0 auto;
+   padding: 10px;
+   border-radius: 10px;
+   margin-top: 40px;
+}
+.login-form{
+    width: 100%;
+}
+
+.login-form .input-field{
+display: block;
+margin-bottom: 10px;
+width: 100%;
+}
+
+.btn-submit {background-image: linear-gradient(to right, #870000 0%, #190A05  51%, #870000  100%)}
+.btn-submit {
+   margin: 10px auto;
+   padding: 10px 25px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: block;
+   border: 0px;
+   font-weight: 600;
+   font-family: 'Poppins', sans-serif;
+ }
+
+ .btn-submit:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+   cursor: pointer;
+ }
+
+ @media only screen and (max-width:420px) {
+    .sign-in-page{
+        width:250px;
+       margin:50px 0px 0px 30px;
+    }
+ }

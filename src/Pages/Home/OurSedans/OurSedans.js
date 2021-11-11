@@ -11,10 +11,11 @@ const OurSedans = () => {
             .then(data => setSedans(data))
     }, [])
     return (
-        <Box>
+        <Box id="our-sedans">
             <Box>
-                <Typography variant={'h3'}>
-                    Our Sedans
+                <Typography sx={{ fontSize: "40px", fontWeight: 500, marginBottom: "40px" }} variant={'h3'}>
+                    Our <span style={{ color: "#30336b" }}>Sedans</span>
+                    <hr style={{ width: "20%", border: "1px solid #30336b" }} />
                 </Typography>
             </Box>
             <Container>

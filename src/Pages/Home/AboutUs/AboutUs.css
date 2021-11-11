@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Mohave:ital@1&display=swap');
+.about-us-description{
+    color: #222f3e;
+    font-family: 'Mohave', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.about-us-img:hover{
+    border: "2px solid red";
+}
+
+@media only screen and (max-width:420px) {
+    #about-us-container{
+        flex-direction: column;
+    }
+}
