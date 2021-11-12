@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, updateProfile, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, getIdToken } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/firebase.init";
 
@@ -7,8 +7,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
-    const [admin, setAdmin] = useState(null);
-
+    const [admin, setAdmin] = useState(false);
+    const [token, setToken] = useState("");
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
     const registerNewUser = (name, email, password, history) => {
@@ -21,11 +21,11 @@ const useFirebase = () => {
                 updateProfile(auth.currentUser, {
                     displayName: name
                 }).then(() => {
-                    // Profile updated!
-                    // ...
+                    // Set User Display Name
+
                 }).catch((error) => {
-                    // An error occurred
-                    // ...
+                    // An error occurred At the time of setting user displayName
+
                 });
 
                 fetch("https://frozen-springs-46400.herokuapp.com/users", {
@@ -40,9 +40,8 @@ const useFirebase = () => {
                 history.replace("/");
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // ..
+
+
                 setError(error.message);
             })
             .finally(() => setLoading(false))
@@ -52,17 +51,14 @@ const useFirebase = () => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                // ...
+
 
                 setError("");
                 const redirect_url = location?.state?.from || "/";
                 history.push(redirect_url);
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
+
                 setError(error.message);
             })
             .finally(() => setLoading(false))
@@ -97,7 +93,7 @@ const useFirebase = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
         }).catch((error) => {
-            // An error happened.
+            setError(error.message)
         })
             .finally(() => setLoading(false))
             ;
@@ -118,12 +114,15 @@ const useFirebase = () => {
             if (user) {
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
-                const uid = user.uid;
-                // ...
+
                 setUser(user);
+                getIdToken(user)
+                    .then(idToken => {
+                        setToken(idToken);
+                    })
             } else {
-                // User is signed out
-                // ...
+                // When User is signed out
+
                 setUser({})
             }
             setLoading(false);
@@ -136,7 +135,9 @@ const useFirebase = () => {
         googleLogIn,
         logoutUser,
         loginUser,
-        loading
+        loading,
+        error,
+        token
     }
 }
 export default useFirebase;

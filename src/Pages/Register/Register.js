@@ -1,13 +1,15 @@
 import { TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import useFirebase from '../hooks/useFirebase';
+import useAuth from '../hooks/useAuth';
+import Alert from '@mui/material/Alert';
 import "./Register.css";
+
 const Register = () => {
     const [userInfo, setUserInfo] = useState({});
     const [rePassword, setRePassword] = useState("");
     const history = useHistory();
-    const { registerNewUser } = useFirebase();
+    const { registerNewUser, error } = useAuth();
 
     const handleMatchingPassword = e => {
         setRePassword(e.target.value);
@@ -26,13 +28,21 @@ const Register = () => {
             registerNewUser(userInfo.displayName, userInfo.email, userInfo.password, history);
             alert("Registered Successfully");
         }
+        else {
+            alert("Password won't matched .Re type password carefully")
+        }
     }
     const handleGoToLogin = () => {
         history.push("/login")
     }
+    console.log(error)
     return (
         <div className="register-page">
             <h1>Register Here</h1>
+            {
+                error && <Alert severity="warning" sx={{ color: "red", marginBottom: '10px' }}>{error}</Alert>
+
+            }
             <form onSubmit={handleUserRegistration} className="register-form">
                 <TextField
                     required

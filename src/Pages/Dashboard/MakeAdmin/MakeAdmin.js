@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState("")
+
     const handleOnChange = e => {
         setEmail(e.target.value);
     }
@@ -10,6 +12,7 @@ const MakeAdmin = () => {
 
         fetch(`https://frozen-springs-46400.herokuapp.com/users?email=${email}`, {
             method: "PUT"
+
         })
             .then(res => res.json())
             .then(data => {

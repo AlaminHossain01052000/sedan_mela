@@ -1,11 +1,13 @@
 import { TextField } from '@material-ui/core';
+import { Alert } from '@mui/material';
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router';
-import useFirebase from '../hooks/useFirebase';
+import useAuth from '../hooks/useAuth';
 import "./Login.css";
 const Login = () => {
     const [user, setUser] = useState({});
-    const { loginUser, googleLogIn } = useFirebase();
+    const { loginUser, googleLogIn, error } = useAuth();
+    console.log(error)
     const history = useHistory();
     const location = useLocation();
     const handleOnChange = e => {
@@ -29,6 +31,10 @@ const Login = () => {
     return (
         <div className="sign-in-page">
             <h1 style={{ color: "#ff6b6b" }}>Login Here</h1>
+            {
+                error && <Alert severity="warning" sx={{ color: "red", marginBottom: "10px" }}>{error}</Alert>
+
+            }
             <form onSubmit={handleUserLogIn} className="login-form">
 
                 <TextField
