@@ -1,8 +1,7 @@
-import { setLogLevel } from '@firebase/app';
 import React, { useEffect, useState } from 'react';
-
 import { useParams } from 'react-router';
 import useAuth from '../hooks/useAuth';
+import "./Purchase.css";
 
 const Purchase = () => {
     const { id } = useParams();
@@ -46,14 +45,15 @@ const Purchase = () => {
             .then(data => setChoosedProduct(data))
     }, [id, user])
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input defaultValue={user.displayName} disabled />
-                <input defaultValue={user.email} disabled />
-                <input type="text" placeholder="Your Address Please" onChange={handleOnChange} name="address" />
+        <div className="purchase-form-container backgroud-img">
 
-                <input type="text" onChange={handleOnChange} placeholder="Your Phone Number" name="phone" />
-                <input type="submit" />
+            <form onSubmit={handleSubmit} style={{ width: "75%", margin: "0  auto" }}>
+                <input className="purchase-info-field-default" defaultValue={user.displayName} disabled />
+                <input defaultValue={user.email} disabled className="purchase-info-field-default" />
+                <input type="text" className="purchase-info-field" placeholder="Your Address Please" onChange={handleOnChange} name="address" />
+
+                <input type="text" className="purchase-info-field" onChange={handleOnChange} placeholder="Your Phone Number" name="phone" />
+                <input type="submit" className="btn-purchase" />
             </form>
 
         </div>

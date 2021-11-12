@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+.purchase-form-container{
+    width: 50%;
+    margin: 50px auto;    
+   
+    height: 500px;
+    padding-top: 50px;
+}
+.backgroud-img{
+    background-position: center;
+    
+    
+    
+    background-color: rgba(0, 0, 0,0.5);
+    background-blend-mode: darken;
+    
+    background-image: url("https://i.ibb.co/HH3Gtny/modern-flat-vector-illustration-concept-260nw-1175615683-removebg-preview.png");
+    background-repeat: no-repeat;
+    
+    
+
+}
+.purchase-info-field-default{
+    display: block;
+    padding:15px 25px;
+    border-radius: 10px;
+    margin: 15px auto;
+    outline: 0px;
+    border-width: 0ch;
+    transition: 0.6s;
+    font-size: 16px;
+    color: #c8d6e5;
+    font-family: 'Oswald', sans-serif;
+
+}
+.purchase-info-field{
+    background-color: #eee;
+    font-family: 'Oswald', sans-serif;
+    display: block;
+    padding:15px 25px;
+    border-radius: 10px;
+    margin: 25px auto;
+    outline: 0px;
+    border-width: 0ch;
+    transition: 0.6s;
+    font-size: 16px;
+    color:"black"
+}
+.purchase-info-field:focus{
+    padding: 15px 45px;
+    border:2px solid #341f97;
+}
+@media only screen and (max-width:420px) {
+    .purchase-form-container{
+        width:75%
+    }
+    .purchase-info-field:focus{
+        padding: 18px 28px;
+        border:2px solid #341f97;
+    }
+}
