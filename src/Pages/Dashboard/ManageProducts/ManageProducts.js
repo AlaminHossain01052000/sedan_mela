@@ -14,14 +14,22 @@ const ManageProducts = () => {
         fetch("http://localhost:5000/sedans")
             .then(res => res.json())
             .then(data => setSedans(data))
-    }, [])
-    console.log(sedans);
+    }, [sedans])
+
     const handleDeleting = (id) => {
-        fetch(`http://localhost:5000/sedans/${id}`, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
+        const confirm = window.confirm("Are You Sure Want To Delete ? ");
+        if (confirm) {
+            fetch(`http://localhost:5000/sedans/${id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        alert("Product is Deleted !")
+                    }
+                })
+        }
+
     }
     return (
         <div>
@@ -51,7 +59,7 @@ const ManageProducts = () => {
                                 <TableCell align="right">{row.price} Lakh</TableCell>
                                 <TableCell align="right">{row.fuelType}</TableCell>
                                 <TableCell align="right">{row.gear}</TableCell>
-                                <TableCell align="right"> <Button onClick={() => handleDeleting(row._id)}>Delete</Button> </TableCell>
+                                <TableCell align="right"> <Button onClick={() => handleDeleting(row._id)} variant="container" sx={{ backgroundColor: "transparent", color: "#ee5253", fontSize: "20px" }}><i className="fas fa-trash"></i></Button> </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

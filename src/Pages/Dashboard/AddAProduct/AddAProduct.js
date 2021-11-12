@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import "./AddProduct.css";
 const AddAProduct = () => {
     const [productInfo, setProductInfo] = useState({});
     const handleOnChange = e => {
@@ -20,50 +20,51 @@ const AddAProduct = () => {
             body: JSON.stringify(productInfo)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data.insertedId) {
+                    alert("Product Added Successfully");
+                }
+            })
     }
     return (
-        <div>
-
-            < div class="form-signin bg-light" >
-                <form onSubmit={handleProductAdding}>
-                    <img class="mb-4" src="https://www.dropbox.com/s/zgbbayj1iqd9fjf/CF_Mark.jpg?raw=1" alt="" width="72" />
-                    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-                    <div class="form-floating">
-                        <input onChange={handleOnChange} type="text" class="form-control" placeholder="Product Name" name="name" />
-
-                    </div>
-                    <div class="form-floating">
-                        <input onChange={handleOnChange} type="text" class="form-control" placeholder="Product Engine" name="engine" />
-
-                    </div>
-                    <div class="form-floating">
-                        <input onChange={handleOnChange} type="number" class="form-control" placeholder="Product Gear" name="gear" />
-
-                    </div>
-                    <div class="form-floating">
-                        <input onChange={handleOnChange} type="text" class="form-control" placeholder="Gear Type" name="gearType" />
-
-                    </div>
-                    <div class="form-floating">
-                        <input onChange={handleOnChange} type="text" class="form-control" placeholder="Product Fuel Type" name="fuelType" />
-
-                    </div>
-                    <div class="form-floating">
-                        <input onChange={handleOnChange} type="text" class="form-control" placeholder="Product Price (In Lakh)" name="price" />
-
-                    </div>
-                    <div class="form-floating">
-                        <input onChange={handleOnChange} type="text" class="form-control" placeholder="Product Image (Live Url)" name="img" />
-
-                    </div>
+        <div className="add-product-form">
 
 
-                    <button className="w-100 btn btn-lg btn-dark" type="submit" >Add Product</button>
-                    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-                </form>
-            </div >
+            <form onSubmit={handleProductAdding} >
+
+                <img src="https://i.ibb.co/WntcHkn/download-1-removebg-preview.png" alt="" width="172" className="add-product-sign" />
+                <h1 style={{ fontFamily: "'Poppins', sans-serif" }}>Add A Product</h1>
+
+
+
+                <input className="product-add-field" required onChange={handleOnChange} type="text" placeholder="Product Name" name="name" />
+
+                <input className="product-add-field" required onChange={handleOnChange} type="text" placeholder="Product Engine" name="engine" />
+
+
+                <input className="product-add-field" required onChange={handleOnChange} type="number" placeholder="Product Gear" name="gear" />
+
+
+                <input className="product-add-field" required onChange={handleOnChange} type="text" placeholder="Gear Type" name="gearType" />
+
+
+                <input className="product-add-field" required onChange={handleOnChange} type="text" placeholder="Product Fuel Type" name="fuelType" />
+
+
+
+                <input className="product-add-field" required onChange={handleOnChange} type="text" placeholder="Product Price (In Lakh)" name="price" />
+
+
+
+                <input className="product-add-field" required onChange={handleOnChange} type="text" placeholder="Product Image (Live Url)" name="img" />
+
+
+
+
+                <button className="btn-add" type="submit" >Add Product</button>
+                <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+            </form>
+
 
 
 
