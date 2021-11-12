@@ -1,24 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 .add-review-container{
     width: 50%;
     text-align: center;
     margin: 0 auto;
+    
   
 }
 .add-review-form{
     margin: 0 auto;
-    width: 50%;
+    width: 75%;
+    background-color: #54a0ff;
+    padding: 15px;
 }
 .add-review-form input ,textarea,select{
 display: block;
-margin-bottom:20px;
-padding: 15px;
+font-size: 16px;
+
+margin: 10px auto;
+padding: 15px 25px;
 background-color: #eee;
 border-radius: 5px;
 border:0px;
 color:blue;
 box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+outline: 0px;
+transition: 0.6s;
+font-family: 'Montserrat', sans-serif;
 }
-
+.add-review-form input:focus ,select:focus{
+    padding: 15px 35px;
+}
+.add-review-form textarea:focus{
+    padding: 15px 25px;
+    font-size: 20px;
+}
 .submit-input:hover{
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     color: brown;
@@ -28,3 +43,23 @@ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
         margin: 10px;
     }
 }
+
+.btn-review {background-image: linear-gradient(to right, #780206 0%, #061161  51%, #780206  100%)}
+.btn-review {
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+  color:white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: block;
+ }
+
+ .btn-review:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }

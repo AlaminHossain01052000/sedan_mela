@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams, useHistory } from 'react-router';
 import useAuth from '../hooks/useAuth';
 import "./Purchase.css";
 
@@ -8,7 +8,7 @@ const Purchase = () => {
     const [choosedProduct, setChoosedProduct] = useState({});
     const { user } = useAuth();
     const [data, setData] = useState({});
-
+    const history = useHistory();
     const handleOnChange = e => {
         const field = e.target.name;
         const value = e.target.value;
@@ -33,7 +33,12 @@ const Purchase = () => {
                 body: JSON.stringify(purchasingInfo)
             })
                 .then(res => res.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    if (data.insertedId) {
+                        alert("Product is purchased succesfully");
+                        history.push("/");
+                    }
+                })
         }
 
 

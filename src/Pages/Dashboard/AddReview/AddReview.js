@@ -42,20 +42,21 @@ const AddReview = () => {
     }
     return (
         <div className="add-review-container">
+            <img src="https://i.ibb.co/mqfxtpC/download-2-removebg-preview.png" alt="" />
             <form onSubmit={handleAddingReview} className="add-review-form">
-                <input type="text" defaultValue={user.displayName} />
-                <input type="text" defaultValue={user.email} />
-                <textarea type="text" placeholder="Description" onChange={getDescription} name="description" rows="6" />
-                <input type="text" onChange={getCompanyName} placeholder="Your Company's Name"></input>
-                <input type="text" onChange={getCompanyPost} name="post" placeholder="Your Post in that company"></input>
-                <select name="review" id="review" onChange={handleGetReview}>
+                <input type="text" defaultValue={user.displayName} disabled style={{ color: "blue", backgroundColor: "rgba(0,0,0,0.5)" }} />
+                <input type="text" defaultValue={user.email} disabled style={{ color: "blue", backgroundColor: "rgba(0,0,0,0.5)" }} />
+                <textarea type="text" placeholder="Description" onChange={getDescription} name="description" rows="6" required />
+                <input type="text" onChange={getCompanyName} placeholder="Your Company's Name" required></input>
+                <input type="text" onChange={getCompanyPost} name="post" placeholder="Your Post in that company" required></input>
+                <select name="review" id="review" onChange={handleGetReview} required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <input className="submit-input" type="submit" value="submit" style={{ cursor: "pointer" }} />
+                <input className="btn-review" type="submit" value="Add Review" style={{ cursor: "pointer" }} />
             </form>
         </div >
     );
