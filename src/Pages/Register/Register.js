@@ -35,7 +35,7 @@ const Register = () => {
     const handleGoToLogin = () => {
         history.push("/login")
     }
-    console.log(error)
+
     return (
         <div className="register-page">
             <h1>Register Here</h1>

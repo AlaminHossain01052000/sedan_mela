@@ -1,15 +1,15 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import useAuth from '../../hooks/useAuth';
+
 import "./ViewOrder.css";
 const ViewOrder = ({ order }) => {
-    const { user } = useAuth();
+
 
     const { img, name, engine, fuelType, gear, gearType, price } = order.productInfo;
 
     const orderId = order._id;
-    const email = user.email;
+
     const handleDeletingOrder = () => {
         const confirmDeleting = window.confirm("Are You Sure Want To Delete ?");
         if (confirmDeleting) {

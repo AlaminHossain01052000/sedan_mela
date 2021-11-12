@@ -7,7 +7,7 @@ import "./Login.css";
 const Login = () => {
     const [user, setUser] = useState({});
     const { loginUser, googleLogIn, error } = useAuth();
-    console.log(error)
+
     const history = useHistory();
     const location = useLocation();
     const handleOnChange = e => {

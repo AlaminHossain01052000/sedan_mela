@@ -12,7 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Route, Switch, useRouteMatch } from 'react-router';
+import { Switch, useRouteMatch } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import MakePayment from '../MakePayment/MakePayment';
@@ -148,7 +148,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" noWrap component="div">
-                        <Link to="/home" style={{ color: "white" }}>Back to home <i class="fas fa-arrow-right"></i></Link>
+                        <Link to="/home" style={{ color: "white" }}>Back to home <i className="fas fa-arrow-right"></i></Link>
                     </Typography>
                 </Toolbar>
             </AppBar>

@@ -1,12 +1,12 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import useFirebase from '../../hooks/useFirebase';
+
 import "./OurSedan.css";
 
 const OurSedan = ({ sedan }) => {
-    const { user } = useFirebase();
+
     const history = useHistory();
 
     const { img, name, engine, fuelType, gear, gearType, price, _id } = sedan

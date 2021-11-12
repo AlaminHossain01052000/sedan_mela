@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import useAuth from '../../hooks/useAuth';
+
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState("")
@@ -27,9 +27,9 @@ const MakeAdmin = () => {
             <h1 className="text-center mb-3" style={{ color: "#30336b" }}>Make Admin</h1>
             <form onSubmit={handleMakingAdmin}>
 
-                <div class="row mb-1">
-                    <div class="col">
-                        <label class="form-label" style={{ fontSize: "20px", fontWeight: 500 }}>Email : </label>
+                <div className="row mb-1">
+                    <div className="col">
+                        <label className="form-label" style={{ fontSize: "20px", fontWeight: 500 }}>Email : </label>
                         <input
                             style={{ padding: "15px", border: 0, backgroundColor: "#eee", color: "blue", fontSize: "16px" }}
                             type="email"

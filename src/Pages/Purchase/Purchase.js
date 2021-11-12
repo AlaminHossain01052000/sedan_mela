@@ -59,9 +59,9 @@ const Purchase = () => {
                 <input defaultValue={choosedProduct.name} disabled className="purchase-info-field-default" />
                 <input defaultValue={choosedProduct.price} disabled className="purchase-info-field-default" />
                 <input defaultValue={choosedProduct.engine} disabled className="purchase-info-field-default" />
-                <input type="text" className="purchase-info-field" placeholder="Your Address Please" onChange={handleOnChange} name="address" />
+                <input required type="text" className="purchase-info-field" placeholder="Your Address Please" onChange={handleOnChange} name="address" />
 
-                <input type="text" className="purchase-info-field" onChange={handleOnChange} placeholder="Your Phone Number" name="phone" />
+                <input required type="text" className="purchase-info-field" onChange={handleOnChange} placeholder="Your Phone Number" name="phone" />
                 <input type="submit" className="btn-purchase" value="Confirm Purchase" />
             </form>
 
