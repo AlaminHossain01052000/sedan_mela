@@ -13,7 +13,7 @@ const SedanCard = ({ sedan }) => {
     }
     return (
         <Grid item lg={4} md={4} sm={12} xs={12}>
-            <Card sx={{ maxWidth: 345, padding: "15px" }}>
+            <Card className="our-sedan-card" sx={{ maxWidth: 345, padding: "15px" }}>
                 <Box id="sedan-img-container">
                     <CardMedia
                         component="img"
@@ -27,26 +27,28 @@ const SedanCard = ({ sedan }) => {
                         </Typography>
                     </Box>
                 </Box>
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                <CardContent sx={{ textAlign: "left" }}>
+                    <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: "center", fontWeight: 600, color: "#130f40" }}>
                         {name}
                     </Typography>
-                    <Typography color="text.secondary">
+                    <Typography className="sedan-description" variant={'h6'}>
                         Engine:{engine}
                     </Typography>
-                    <Typography color="text.secondary">
+                    <Typography className="sedan-description" variant={'h6'}>
                         Tranmission(Gear):{gear}/{gearType}
                     </Typography>
-                    <Typography color="text.secondary">
+                    <Typography className="sedan-description" variant={'h6'}>
                         Fuel Type:{fuelType}
                     </Typography>
 
-                    <Typography color="text.secondary">
+                    <Typography className="sedan-description" variant={'h6'}>
                         Fuel Type:{fuelType}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={handlePurchasing}>Purchase</Button>
+                    <Button onClick={handlePurchasing}
+                        className="btn-purchase" sx={{ margin: "0 auto", color: "white", transition: "0.6s" }}
+                    >Purchase</Button>
                 </CardActions>
             </Card>
         </Grid>
