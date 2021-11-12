@@ -34,15 +34,8 @@ font-family: 'Montserrat', sans-serif;
     padding: 15px 25px;
     font-size: 20px;
 }
-.submit-input:hover{
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    color: brown;
-}
-@media only screen and (max-width:420px) {
-    .add-review-container{
-        margin: 10px;
-    }
-}
+
+
 
 .btn-review {background-image: linear-gradient(to right, #780206 0%, #061161  51%, #780206  100%)}
 .btn-review {
@@ -63,3 +56,20 @@ font-family: 'Montserrat', sans-serif;
    color: #fff;
    text-decoration: none;
  }
+@media only screen and (max-width:420px){
+    .add-review-container{
+        width: 100%;
+    }
+    .add-review-form{
+        
+        width: 100%;
+        
+    }
+    .add-review-form input:focus ,select:focus{
+        padding: 20px 25px;
+    }
+    .add-review-form textarea:focus{
+        padding: 20px 25px;
+        font-size: 16px;
+    }
+}
