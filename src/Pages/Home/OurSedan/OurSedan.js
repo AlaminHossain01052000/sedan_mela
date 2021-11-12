@@ -1,7 +1,7 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
 import "./OurSedan.css";
 
@@ -10,19 +10,7 @@ const OurSedan = ({ sedan }) => {
     const history = useHistory();
 
     const { img, name, engine, fuelType, gear, gearType, price, _id } = sedan
-    const handlePurchasing = () => {
-        const email = user.email;
-        const body = { ...sedan, email };
-        fetch(`http://localhost:5000/purchasedSedan`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(body)
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
-    }
+
     const gotoPurchase = id => {
         history.push(`/purchase/${id}`);
     }

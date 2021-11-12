@@ -7,13 +7,13 @@ const ViewOrder = ({ order }) => {
     const { user } = useAuth();
 
     const { img, name, engine, fuelType, gear, gearType, price } = order.productInfo;
-    console.log(order);
+
     const orderId = order._id;
     const email = user.email;
     const handleDeletingOrder = () => {
         const confirmDeleting = window.confirm("Are You Sure Want To Delete ?");
         if (confirmDeleting) {
-            fetch(`http://localhost:5000/purchasedSedan/All/${orderId}`, {
+            fetch(`https://frozen-springs-46400.herokuapp.com/purchasedSedan/All/${orderId}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

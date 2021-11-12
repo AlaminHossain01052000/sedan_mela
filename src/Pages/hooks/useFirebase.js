@@ -28,7 +28,7 @@ const useFirebase = () => {
                     // ...
                 });
 
-                fetch("http://localhost:5000/users", {
+                fetch("https://frozen-springs-46400.herokuapp.com/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"
@@ -74,8 +74,8 @@ const useFirebase = () => {
             .then((result) => {
                 setError("");
                 const newUser = { displayName: result.user.displayName, email: result.user.email };
-                console.log(result.user);
-                fetch("http://localhost:5000/users", {
+
+                fetch("https://frozen-springs-46400.herokuapp.com/users", {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -105,7 +105,7 @@ const useFirebase = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/users/admin?email=${user.email}`)
+        fetch(`https://frozen-springs-46400.herokuapp.com/users/admin?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)

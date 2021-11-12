@@ -5,7 +5,7 @@ import SedanCard from '../SedanCard/SedanCard';
 const AllSedans = () => {
     const [sedans, setSedans] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/sedans")
+        fetch("https://frozen-springs-46400.herokuapp.com/sedans")
             .then(res => res.json())
             .then(data => setSedans(data))
     }, [])

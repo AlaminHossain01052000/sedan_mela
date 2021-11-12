@@ -8,7 +8,7 @@ const MakeAdmin = () => {
     const handleMakingAdmin = e => {
         e.preventDefault();
 
-        fetch(`http://localhost:5000/users?email=${email}`, {
+        fetch(`https://frozen-springs-46400.herokuapp.com/users?email=${email}`, {
             method: "PUT"
         })
             .then(res => res.json())

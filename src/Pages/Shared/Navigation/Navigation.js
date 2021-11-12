@@ -9,7 +9,7 @@ import "./Navigation.css";
 
 const Navigation = () => {
     const { user, logoutUser } = useAuth();
-    console.log(window.screen.width);
+
     const history = useHistory();
     const changeBackground = () => {
         const appBar = document.getElementById("app-bar");

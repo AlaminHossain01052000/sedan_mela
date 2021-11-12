@@ -12,7 +12,7 @@ const AddAProduct = () => {
     }
     const handleProductAdding = (e) => {
         e.preventDefault();
-        fetch("http://localhost:5000/sedans", {
+        fetch("https://frozen-springs-46400.herokuapp.com/sedans", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

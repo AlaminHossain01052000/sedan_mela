@@ -11,7 +11,7 @@ const MyOrders = () => {
     const email = user.email;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/purchasedSedan?email=${email}`)
+        fetch(`https://frozen-springs-46400.herokuapp.com/purchasedSedan?email=${email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [email])

@@ -11,7 +11,7 @@ import { Button } from '@mui/material';
 const ManageProducts = () => {
     const [sedans, setSedans] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/sedans")
+        fetch("https://frozen-springs-46400.herokuapp.com/sedans")
             .then(res => res.json())
             .then(data => setSedans(data))
     }, [sedans])
@@ -19,7 +19,7 @@ const ManageProducts = () => {
     const handleDeleting = (id) => {
         const confirm = window.confirm("Are You Sure Want To Delete ? ");
         if (confirm) {
-            fetch(`http://localhost:5000/sedans/${id}`, {
+            fetch(`https://frozen-springs-46400.herokuapp.com/sedans/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

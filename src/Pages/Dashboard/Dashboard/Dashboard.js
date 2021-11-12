@@ -33,7 +33,7 @@ function Dashboard(props) {
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
     const { admin } = useAuth();
-    console.log(admin)
+
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };

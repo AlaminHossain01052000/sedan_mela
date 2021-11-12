@@ -22,7 +22,7 @@ const Register = () => {
     const handleUserRegistration = e => {
         e.preventDefault();
         if (userInfo.password === rePassword) {
-            console.log(userInfo);
+
             registerNewUser(userInfo.displayName, userInfo.email, userInfo.password, history);
             alert("Registered Successfully");
         }

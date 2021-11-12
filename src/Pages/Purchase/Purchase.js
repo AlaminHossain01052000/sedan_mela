@@ -25,8 +25,8 @@ const Purchase = () => {
             const purchasingInfo = {
                 displayName: user.displayName, email: user.email, ...data, status: "pending", productName: choosedProduct.name, productId: choosedProduct._id, productInfo: { ...choosedProduct }
             };
-            console.log(purchasingInfo);
-            fetch(`http://localhost:5000/purchasedSedan`, {
+
+            fetch(`https://frozen-springs-46400.herokuapp.com/purchasedSedan`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -39,9 +39,9 @@ const Purchase = () => {
 
 
     };
-    console.log(id);
+
     useEffect(() => {
-        fetch(`http://localhost:5000/sedan/${id}`)
+        fetch(`https://frozen-springs-46400.herokuapp.com/sedan/${id}`)
             .then(res => res.json())
             .then(data => setChoosedProduct(data))
     }, [id, user])
