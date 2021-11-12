@@ -50,6 +50,7 @@ const AddReview = () => {
                 <input type="text" onChange={getCompanyName} placeholder="Your Company's Name" required></input>
                 <input type="text" onChange={getCompanyPost} name="post" placeholder="Your Post in that company" required></input>
                 <select name="review" id="review" onChange={handleGetReview} required>
+                    <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

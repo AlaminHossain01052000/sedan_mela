@@ -35,7 +35,7 @@ const Navigation = () => {
     function myFunction() {
         var x = document.getElementById("nav-links");
         if (x.style.display === "none") {
-            x.style.display = "blox";
+            x.style.display = "block";
         } else {
             x.style.display = "none";
         }
@@ -81,11 +81,11 @@ const Navigation = () => {
 
 
 
-
-                                <Link to="/dashboard">
+                                {user.email && <Link to="/dashboard">
                                     <Button>Dashboard</Button>
 
-                                </Link>
+                                </Link>}
+
                                 <Typography sx={{ fontSize: "9px" }} disabled>
                                     {
                                         user.email && <h1 style={{ color: "white" }}>{user.displayName}</h1>

@@ -6,6 +6,7 @@ import "./Purchase.css";
 const Purchase = () => {
     const { id } = useParams();
     const [choosedProduct, setChoosedProduct] = useState({});
+
     const { user } = useAuth();
     const [data, setData] = useState({});
     const history = useHistory();
@@ -55,10 +56,13 @@ const Purchase = () => {
             <form onSubmit={handleSubmit} style={{ width: "75%", margin: "0  auto" }}>
                 <input className="purchase-info-field-default" defaultValue={user.displayName} disabled />
                 <input defaultValue={user.email} disabled className="purchase-info-field-default" />
+                <input defaultValue={choosedProduct.name} disabled className="purchase-info-field-default" />
+                <input defaultValue={choosedProduct.price} disabled className="purchase-info-field-default" />
+                <input defaultValue={choosedProduct.engine} disabled className="purchase-info-field-default" />
                 <input type="text" className="purchase-info-field" placeholder="Your Address Please" onChange={handleOnChange} name="address" />
 
                 <input type="text" className="purchase-info-field" onChange={handleOnChange} placeholder="Your Phone Number" name="phone" />
-                <input type="submit" className="btn-purchase" />
+                <input type="submit" className="btn-purchase" value="Confirm Purchase" />
             </form>
 
         </div>
