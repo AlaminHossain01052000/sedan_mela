@@ -39,7 +39,7 @@ const AddReview = () => {
                     window.location.reload();
                 }
             })
-    }
+        }
     return (
         <div className="add-review-container">
             <img src="https://i.ibb.co/mqfxtpC/download-2-removebg-preview.png" alt="" />

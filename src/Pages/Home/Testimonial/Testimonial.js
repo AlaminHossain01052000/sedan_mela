@@ -29,9 +29,9 @@ const Testimonial = ({ testimonial }) => {
                                         variant="body2"
                                         color="text.primary"
                                     >
-                                        {testimonial.company.post} at
+                                        {testimonial?.company?.post} at
                                     </Typography>
-                                    {testimonial.company.name}
+                                    {testimonial?.company?.name}
                                 </React.Fragment>
                             }
                         />
