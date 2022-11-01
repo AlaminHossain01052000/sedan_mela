@@ -26,7 +26,7 @@ const Purchase = () => {
                 displayName: user.displayName, email: user.email, ...data, status: "pending", productName: choosedProduct.name, productId: choosedProduct._id, productInfo: { ...choosedProduct }
             };
 
-            fetch(`https://frozen-springs-46400.herokuapp.com/purchasedSedan`, {
+            fetch(`https://sedan-mela-server.vercel.app/purchasedSedan`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -46,7 +46,7 @@ const Purchase = () => {
     };
 
     useEffect(() => {
-        fetch(`https://frozen-springs-46400.herokuapp.com/sedan/${id}`)
+        fetch(`https://sedan-mela-server.vercel.app/sedan/${id}`)
             .then(res => res.json())
             .then(data => setChoosedProduct(data))
     }, [id, user])

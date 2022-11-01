@@ -24,7 +24,7 @@ const AddReview = () => {
     const handleAddingReview = (e) => {
         e.preventDefault();
         const testimonial = { email: user.email, name: user.displayName, rating: review, description: description, company: { post: companyPost, name: companyName } };
-        fetch("https://frozen-springs-46400.herokuapp.com/testimonials", {
+        fetch("https://sedan-mela-server.vercel.app/testimonials", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

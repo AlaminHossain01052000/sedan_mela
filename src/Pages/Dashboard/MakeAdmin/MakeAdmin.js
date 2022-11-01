@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     const handleMakingAdmin = e => {
         e.preventDefault();
 
-        fetch(`https://frozen-springs-46400.herokuapp.com/users?email=${email}`, {
+        fetch(`https://sedan-mela-server.vercel.app/users?email=${email}`, {
             method: "PUT"
 
         })

@@ -13,7 +13,7 @@ const ViewOrder = ({ order }) => {
     const handleDeletingOrder = () => {
         const confirmDeleting = window.confirm("Are You Sure Want To Delete ?");
         if (confirmDeleting) {
-            fetch(`https://frozen-springs-46400.herokuapp.com/purchasedSedan/All/${orderId}`, {
+            fetch(`https://sedan-mela-server.vercel.app/purchasedSedan/All/${orderId}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

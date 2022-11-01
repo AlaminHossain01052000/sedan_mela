@@ -42,7 +42,7 @@ const Testimonials = () => {
     };
 
     useEffect(() => {
-        fetch("https://frozen-springs-46400.herokuapp.com/testimonials")
+        fetch("https://sedan-mela-server.vercel.app/testimonials")
             .then(res => res.json())
             .then(data => setTestimonials(data))
     }, [])

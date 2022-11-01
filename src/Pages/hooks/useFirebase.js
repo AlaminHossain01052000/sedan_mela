@@ -28,7 +28,7 @@ const useFirebase = () => {
 
                 });
 
-                fetch("https://frozen-springs-46400.herokuapp.com/users", {
+                fetch("https://sedan-mela-server.vercel.app/users", {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"
@@ -71,7 +71,7 @@ const useFirebase = () => {
                 setError("");
                 const newUser = { displayName: result.user.displayName, email: result.user.email };
 
-                fetch("https://frozen-springs-46400.herokuapp.com/users", {
+                fetch("https://sedan-mela-server.vercel.app/users", {
                     method: "PUT",
                     headers: {
                         "content-type": "application/json"
@@ -101,7 +101,7 @@ const useFirebase = () => {
 
     useEffect(() => {
 
-        fetch(`https://frozen-springs-46400.herokuapp.com/users/admin?email=${user.email}`)
+        fetch(`https://sedan-mela-server.vercel.app/users/admin?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)

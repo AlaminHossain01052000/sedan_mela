@@ -1,5 +1,5 @@
 Website Live Link :-https://sedanmela.web.app/
-Database Live Link :-https://frozen-springs-46400.herokuapp.com/
+Database Live Link :-https://sedan-mela-server.vercel.app/
 -----------------------------------------------------------------
 This Website Represent a company named Sedan Mela.It sells cars of sedan category .
 You Can Buy Many Expensive Cars From This Company .Some of the features of this website are :-

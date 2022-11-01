@@ -6,7 +6,7 @@ import "./OurSedans.css";
 const OurSedans = () => {
     const [sedans, setSedans] = useState([]);
     useEffect(() => {
-        fetch("https://frozen-springs-46400.herokuapp.com/sedans")
+        fetch("https://sedan-mela-server.vercel.app/sedans")
             .then(res => res.json())
             .then(data => setSedans(data))
     }, [])

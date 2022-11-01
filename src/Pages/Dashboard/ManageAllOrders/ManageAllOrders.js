@@ -15,7 +15,7 @@ const ManageAllOrders = () => {
     const [purchasedProducts, setPurchaseProducts] = useState([]);
 
     useEffect(() => {
-        fetch("https://frozen-springs-46400.herokuapp.com/purchasedSedan/All")
+        fetch("https://sedan-mela-server.vercel.app/purchasedSedan/All")
             .then(res => res.json())
             .then(data => {
                 setPurchaseProducts(data);
@@ -24,7 +24,7 @@ const ManageAllOrders = () => {
     }, [purchasedProducts])
     const handleUpdateStatus = (id) => {
 
-        fetch(`https://frozen-springs-46400.herokuapp.com/purchasedSedan/All/${id}`, {
+        fetch(`https://sedan-mela-server.vercel.app/purchasedSedan/All/${id}`, {
             method: "PUT"
         })
             .then(res => res.json())
@@ -38,7 +38,7 @@ const ManageAllOrders = () => {
     const handleDeleteOrder = (id) => {
         const confirm = window.confirm("Are You Sure Want To Delete ? ");
         if (confirm) {
-            fetch(`https://frozen-springs-46400.herokuapp.com/purchasedSedan/All/${id}`, {
+            fetch(`https://sedan-mela-server.vercel.app/purchasedSedan/All/${id}`, {
                 method: "Delete"
             })
                 .then(res => res.json())

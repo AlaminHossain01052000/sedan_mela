@@ -12,7 +12,7 @@ const AddAProduct = () => {
     }
     const handleProductAdding = (e) => {
         e.preventDefault();
-        fetch("https://frozen-springs-46400.herokuapp.com/sedans", {
+        fetch("https://sedan-mela-server.vercel.app/sedans", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
